@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+.block{
+	display:block;
+}
+
+.inline{
+	display:inline-block;
+}
+
+</style>
+<body>
+
+<p id="p1">
+Visibility
+</p>
+
+<input type="button" value="Hide text" onclick="document.getElementById('p1').style.visibility='hidden'">
+<input type="button" value="Show text" onclick="document.getElementById('p1').style.visibility='visible'">
+
+<p id="p2">
+Display
+</p>
+
+<div class="block">
+<input type="button" value="Hide text" onclick="document.getElementById('p2').style.display='none'">
+<input type="button" value="Show text" onclick="document.getElementById('p2').style.display='block'">
+</div>
+
+<p id="p3" class="inline">
+Opacity:
+</p>
+<p id="demo" class="inline">
+</p>
+
+ <input type="range" min="0" max="1.0" value="0.5" class="slider block" step="0.01" id="myRange">
+
+ <script>
+ var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+var p3 = document.getElementById("p3");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+  p3.style.opacity = this.value;
+}
+ </script>
+
+</body>
+</html>
